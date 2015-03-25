@@ -18,9 +18,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let task1 = TaskModel(task: "Ride a goat", subTask: "Must be brown", date: "01/01/2014")
-        let task2 = TaskModel(task: "Ride a whale", subTask: "Blue or white", date: "01/01/2015")
-        let task3 = TaskModel(task: "Ride a cat", subTask: "Pink", date: "01/02/2015")
+        let date1 = Date.from(year: 2014, month: 5, day: 2)
+        let date2 = Date.from(year: 2015, month: 4, day: 23)
+        let date3 = Date.from(year: 2015, month: 11, day: 5)
+        
+        let task1 = TaskModel(task: "Ride a goat", subTask: "Must be brown", date: date1)
+        let task2 = TaskModel(task: "Ride a whale", subTask: "Blue or white", date: date2)
+        let task3 = TaskModel(task: "Ride a cat", subTask: "Pink", date: date3)
         
         
         taskArray = [task1, task2, task3]
@@ -60,7 +64,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.taskLabel.text = thisTask.task
         cell.descriptionLabel.text = thisTask.subTask
-        cell.dateLabel.text = thisTask.date
+        cell.dateLabel.text = Date.toString(date: thisTask.date)
         
         
         return cell
